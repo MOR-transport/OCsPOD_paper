@@ -1,0 +1,14 @@
+name: env_with_accel
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - cython
+  - pybind11
+  - numpy
+  - scipy
+  - matplotlib
+  - numba
+  - scikit-learn
+  - opt_einsum
+  - tikzplotlib
