@@ -15,6 +15,9 @@ plt.rcParams.update({
     "font.family": "serif",
     "font.serif": ["Computer Modern"]})
 
+import matplotlib as mpl
+mpl.rcParams.update(mpl.rcParamsDefault)
+
 SMALL_SIZE = 16
 MEDIUM_SIZE = 18
 BIGGER_SIZE = 20
