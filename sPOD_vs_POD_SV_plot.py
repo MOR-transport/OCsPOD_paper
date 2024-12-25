@@ -110,7 +110,6 @@ U_S, SIG_S, VH_S = np.linalg.svd(QS, full_matrices=False)
 SIG_T_k_SIG_T_0 = SIG_T[:rank] / SIG_T[0]
 SIG_S_k_SIG_S_0 = SIG_S[:rank] / SIG_S[0]
 
-
 # PLOT the combined figure
 # Create figure and axis for the line plots
 fig, ax = plt.subplots(figsize=(8, 6))
@@ -119,7 +118,8 @@ fig, ax = plt.subplots(figsize=(8, 6))
 ax.semilogy(np.arange(1, rank + 1), SIG_T_k_SIG_T_0, label='Traveling wave', color='green', marker="*")
 ax.semilogy(np.arange(1, rank + 1), SIG_S_k_SIG_S_0, label='Stationary wave', color='orange', marker="*")
 ax.set_xlabel(r"$k$")
-ax.set_ylabel(r"$\sigma_k/\sigma_0$")
+ax.set_xticks(np.array([1, 20, 40, 60, 80, 100]))
+ax.set_ylabel(r"$\sigma_k/\sigma_1$")
 ax.grid()
 ax.legend()
 
