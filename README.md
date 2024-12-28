@@ -67,5 +67,6 @@ Once all the runs are complete, the results can be visualized using the followin
    Usage: `python3 control_adjoint_state_plot.py arg`  
    - This script plots the combined snapshots for the optimal controls, adjoints, and optimal states for the specified `arg`, where `arg` specifies the example problem.
 
+Note: For the last standard version, please refer to [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14355726.svg)](https://doi.org/10.5281/zenodo.14355726) 
 
 Researchers are encouraged to try out the examples and extend it for their own research problems.
