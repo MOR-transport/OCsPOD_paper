@@ -90,18 +90,18 @@ class advection:
 
         return q_adj
 
-    def RHS_adjoint(self, q_adj, q, q_tar, A, CTC):
+    def RHS_adjoint(self, q_adj, q, q_tar, A):
 
-        return - A @ q_adj - CTC @ (q - q_tar)
+        return - A @ q_adj - self.dx * (q - q_tar)
 
-    def TI_adjoint(self, q0_adj, qs, qs_target, A, CTC):
+    def TI_adjoint(self, q0_adj, qs, qs_target, A):
         # Time loop
         qs_adj = np.zeros((self.Nxi * self.Neta, self.Nt))
         qs_adj[:, -1] = q0_adj
 
         for n in range(1, self.Nt):
             qs_adj[:, -(n + 1)] = rk4_adj(self.RHS_adjoint, qs_adj[:, -n], qs[:, -n], qs[:, -(n + 1)],
-                                          qs_target[:, -n], qs_target[:, -(n + 1)], -self.dt, A, CTC)
+                                          qs_target[:, -n], qs_target[:, -(n + 1)], -self.dt, A)
         return qs_adj
 
     def RHS_primal_target(self, q, f, Mat, v_x, v_y):
